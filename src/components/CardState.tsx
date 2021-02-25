@@ -98,7 +98,7 @@ const CardState: React.FC<ICardStateProps> = ({ type, project }) => {
   const { networkId } = useConnectedWeb3Context();
   const { projectConf } = useProjectConfig(project.ipfsHash);
   const { insurance } = useInsurance(project.id);
-  const setting = getLiftoffSettings(networkId || 1);
+  const setting = getLiftoffSettings(networkId);
 
   const history = useHistory();
   const currentTime = moment().unix();

@@ -144,7 +144,7 @@ const Badge = styled(StatusBadge)(
 );
 
 type Props = {
-  networkId: number | undefined;
+  networkId: Maybe<number>;
   projectConfig: ProjectConfig;
   tokenSale: TokenSale;
   tokenInsurance: Maybe<TokenInsurance>;
@@ -178,7 +178,7 @@ const Detail = ({
 
   let setting: any;
   const status = projectStatus(tokenSale);
-  setting = getLiftoffSettings(networkId || 1);
+  setting = getLiftoffSettings(networkId);
 
   const currentTime = moment().unix();
 

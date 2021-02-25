@@ -33,7 +33,7 @@ const StyledButton = styled(Button)({
 });
 
 interface IProps {
-  networkId: number | undefined;
+  networkId: Maybe<number>;
   tokenSaleId: string;
   tokenInsurance: Maybe<TokenInsurance>;
 }
@@ -46,7 +46,7 @@ const ClaimXETH: React.FC<IProps> = ({
   const [, updateTxStatus, toggleTxModal] = useTxModal();
   const context = useConnectedWeb3Context();
   const { liftoffInsurance } = useContracts(context);
-  const setting = getLiftoffSettings(networkId || 1);
+  const setting = getLiftoffSettings(networkId);
 
   const currentTime = moment().unix();
   const cycles =

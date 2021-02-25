@@ -7,9 +7,9 @@ import { ConnectorNames } from 'utils/enums';
 import { Maybe } from 'utils/types';
 
 export interface ConnectedWeb3ContextProps {
-  account: Maybe<string> | null;
+  account: Maybe<string>;
   library: Web3Provider | undefined;
-  networkId: number | undefined;
+  networkId: Maybe<number>;
   rawWeb3Context: any;
 }
 
@@ -61,9 +61,9 @@ export const ConnectedWeb3: React.FC = (props) => {
   }, [context, library, active, error]);
 
   const value = {
-    account: account || null,
+    account: account ?? null,
     library,
-    networkId: chainId,
+    networkId: chainId ?? 56, // TODO: use env for default network
     rawWeb3Context: context
   };
 

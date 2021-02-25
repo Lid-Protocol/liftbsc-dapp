@@ -76,7 +76,7 @@ const Launchpad: FC = () => {
   const context = useConnectedWeb3Context();
   const [, toggleModal] = useWalletModal();
   const { liftoffRegistration } = useContracts(context);
-  const settings = getLiftoffSettings(context.networkId || 1);
+  const settings = getLiftoffSettings(context.networkId);
 
   const { control, errors, register, handleSubmit } = useForm({
     mode: 'all',

@@ -52,11 +52,11 @@ const StyledTData = styled(TData)(
 
 interface IProps {
   deployed: string;
-  networkId: number | undefined;
+  networkId: Maybe<number>;
 }
 
 const TokenStats: FC<IProps> = ({ deployed, networkId }) => {
-  const xEthAddress = getContractAddress(networkId || 1, 'xEth');
+  const xEthAddress = getContractAddress(networkId, 'xEth');
   const swapLink = `https://penguinswap.eth.link/#/swap?inputCurrency=${xEthAddress}&outputCurrency=${deployed}`;
   const [tokenPrice, setTokenPrice] = useState('0');
 

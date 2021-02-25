@@ -10,7 +10,7 @@ import {
 export enum networkIds {
   MAINNET = 56,
   ROPSTEN = 97
-};
+}
 
 const networks: { [K in NetworkId]: INetwork } = {
   [networkIds.MAINNET]: {
@@ -82,12 +82,12 @@ export const supportedNetworkURLs = entries(networks).reduce<{
 );
 
 export const validNetworkId = (
-  networkId: number | undefined
+  networkId: Maybe<number>
 ): networkId is NetworkId => {
   return networks[networkId as NetworkId] !== undefined;
 };
 
-export const getLiftoffSettings = (networkId: number | undefined) => {
+export const getLiftoffSettings = (networkId: Maybe<number>) => {
   if (!validNetworkId(networkId)) {
     throw new Error(`Unsupported network id: '${networkId}'`);
   }
@@ -95,7 +95,7 @@ export const getLiftoffSettings = (networkId: number | undefined) => {
 };
 
 export const getContractAddress = (
-  networkId: number | undefined,
+  networkId: Maybe<number>,
   contract: KnownContracts
 ) => {
   if (!validNetworkId(networkId)) {
@@ -116,7 +116,7 @@ export const getContractAddressName = (networkId: number) => {
 };
 
 export const getGraphUris = (
-  networkId: number | undefined
+  networkId: Maybe<number>
 ): { httpUri: string; wsUri: string } => {
   if (!validNetworkId(networkId)) {
     throw new Error(`Unsupported network id: '${networkId}'`);
@@ -135,4 +135,4 @@ export const TokenEthereum = {
 export const networkNames = {
   [networkIds.MAINNET]: 'Mainnet',
   [networkIds.ROPSTEN]: 'Ropsten'
-}
+};

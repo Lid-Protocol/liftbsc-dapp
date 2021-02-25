@@ -4,7 +4,12 @@ import { utils } from 'ethers';
 import Button from './Button';
 import InputWithAddon from './InputAddon';
 import { TYPE, StyledRocketCard, ExternalLink } from '../theme';
-import { useConnectedWeb3Context, useContracts, useToken, useTxModal } from '../contexts';
+import {
+  useConnectedWeb3Context,
+  useContracts,
+  useToken,
+  useTxModal
+} from '../contexts';
 import { Ignitor } from 'utils/types';
 import { TxStatus } from 'utils/enums';
 import TermsOfUseModal from './TermsOfUseModal';
@@ -32,11 +37,14 @@ const StyledButton = styled(Button)`
 
 const StyledTokenSelector = styled.div`
   margin-top: 20px;
-`
+`;
 const StyledTokenButton = styled(Button)<{ isSelected: boolean }>`
-  background: ${({ isSelected }) => (isSelected ? 'linear-gradient(90deg, rgba(249,55,206,1) 0%, rgba(144,44,233,1) 100%)' : '#FFFFFF')};
+  background: ${({ isSelected }) =>
+    isSelected
+      ? 'linear-gradient(90deg, rgba(249,55,206,1) 0%, rgba(144,44,233,1) 100%)'
+      : '#FFFFFF'};
   color: ${({ isSelected }) => (isSelected ? '#FFFFFF' : '#B4B4B4')};
-  border: 1px solid #DADADA;
+  border: 1px solid #dadada;
   border-radius: 5px;
   margin-right: 10px;
 `;
@@ -44,11 +52,11 @@ const StyledTokenButton = styled(Button)<{ isSelected: boolean }>`
 const StyledIgnitedBalance = styled.div`
   display: flex;
   justify-content: space-between;
-  border: 1px solid #DADADA;
+  border: 1px solid #dadada;
   padding: 10px 15px;
   width: 250px;
   border-radius: 5px;
-`
+`;
 
 const StyledInput = styled(InputWithAddon)({}, ({ theme }) =>
   theme.mediaWidth.upToSmall({})
@@ -58,15 +66,20 @@ interface IProps {
   tokenSaleId: string;
   igniteInfo: Maybe<Ignitor>;
   tokenTicker: string;
-  networkId: number | undefined;
+  networkId: Maybe<number>;
 }
 
-const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networkId }) => {
+const Ignite: React.FC<IProps> = ({
+  tokenSaleId,
+  igniteInfo,
+  tokenTicker,
+  networkId
+}) => {
   const [, updateTxStatus, toggleTxModal] = useTxModal();
   const context = useConnectedWeb3Context();
   const { liftoffEngine } = useContracts(context);
-  const { account } = context
-  const xEthAddress = getContractAddress(networkId || 1, 'xEth');
+  const { account } = context;
+  const xEthAddress = getContractAddress(networkId, 'xEth');
   const { token: xToken } = useToken(context, xEthAddress);
 
   const [amount, setAmount] = useState('0');
@@ -116,15 +129,15 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
 
   const onClickTokenETH = () => {
     setETH(true);
-  }
+  };
 
   const onClickTokenXETH = () => {
     setETH(false);
-  }
+  };
 
   const onModalClose = () => {
     setModalOpen(false);
-  }
+  };
 
   const onModalAccept = async () => {
     setModalOpen(false);
@@ -132,7 +145,7 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
       return;
     }
     try {
-      let txHash
+      let txHash;
       if (isETH) {
         txHash = await liftoffEngine.igniteEth(tokenSaleId, amount);
       } else {
@@ -143,7 +156,7 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
       console.log(error);
       updateTxStatus(TxStatus.TX_ERROR);
     }
-  }
+  };
 
   const onClickApprove = async () => {
     if (!xToken || !liftoffEngine || isApprovedTokens) {
@@ -156,7 +169,7 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
       alert(error.message || error);
       console.log(error);
     }
-  }
+  };
 
   return (
     <>
@@ -170,12 +183,16 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
             Learn about xETH
           </ExternalLink>
         </TYPE.Body>
-        
+
         <TYPE.Header mt="1.375rem">Select Token to ignite</TYPE.Header>
-          <StyledTokenSelector>
-            <StyledTokenButton onClick={onClickTokenETH} isSelected={isETH}>ETH</StyledTokenButton>
-            <StyledTokenButton onClick={onClickTokenXETH} isSelected={!isETH}>xETH</StyledTokenButton>
-          </StyledTokenSelector>
+        <StyledTokenSelector>
+          <StyledTokenButton onClick={onClickTokenETH} isSelected={isETH}>
+            ETH
+          </StyledTokenButton>
+          <StyledTokenButton onClick={onClickTokenXETH} isSelected={!isETH}>
+            xETH
+          </StyledTokenButton>
+        </StyledTokenSelector>
         <TYPE.Header mt="1.375rem">Amount of ETH to ignite</TYPE.Header>
         <Flex>
           <StyledInput
@@ -197,9 +214,16 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
         <Flex>
           <StyledIgnitedBalance>
             <TYPE.Header>Your ETH ignited</TYPE.Header>
-            <TYPE.Header>{igniteInfo ? utils.formatEther(igniteInfo.ignited) : 0} ETH</TYPE.Header>
+            <TYPE.Header>
+              {igniteInfo ? utils.formatEther(igniteInfo.ignited) : 0} ETH
+            </TYPE.Header>
           </StyledIgnitedBalance>
-          <StyledButton onClick={onClickUndoIgnite} style={{background: "#484E5A"}}>UndoIgnite</StyledButton>
+          <StyledButton
+            onClick={onClickUndoIgnite}
+            style={{ background: '#484E5A' }}
+          >
+            UndoIgnite
+          </StyledButton>
         </Flex>
       </StyledRocketCard>
       <TermsOfUseModal
@@ -207,7 +231,7 @@ const Ignite: React.FC<IProps> = ({ tokenSaleId, igniteInfo, tokenTicker, networ
         tokenTicker={tokenTicker}
         onAccept={onModalAccept}
         onClose={onModalClose}
-       />
+      />
     </>
   );
 };
