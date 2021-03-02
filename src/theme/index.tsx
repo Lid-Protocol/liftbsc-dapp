@@ -42,7 +42,7 @@ export const colors: Colors = {
   text5: '#2C2F36',
   text6: '#565656',
 
-  bg1: '#131717',
+  bg1: '#212121',
   bg2: '#484E5A',
   bg3: '#CFD6E2',
   bg4: '#F9FAFB',
@@ -50,7 +50,7 @@ export const colors: Colors = {
   bg6: '#D8D8D8',
   bg7: '#EBEBEB',
 
-  primary1: '#2A7CEA',
+  primary1: '#E7BA41',
   primary2: '#FF8CC3',
   primary3: '#FF99C9',
   primary4: '#F6DDE8',
@@ -169,7 +169,7 @@ export const TData = styled.td({}, ({ children, theme }) =>
 
 export const StyledRocketCard = styled(Card)`
   display: flex;
-  color: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
   padding: 2rem;
   flex-direction: column;
   margin: 0.5rem 0 !important;
@@ -286,19 +286,25 @@ export const ExternalLink = ({
 
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
-  color: ${({ theme }) => theme.text1};
+  color: ${({ theme }) => theme.white};
 }
 body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  background-color: #212121;
 }
 input, textarea {
-  border: ${({ theme }) => `1px solid ${theme.border}`} !important;
-  color: ${({ theme }) => theme.text5} !important;
+  border: none !important;
+  color: ${({ theme }) => theme.white} !important;
   text-decoration: none !important;
   font-family: 'Open Sans', sans-serif;
   border-radius: 5px;
+  background-color: #323232 !important;
+}
+
+a {
+  color: ${({ theme }) => theme.primary1};
 }
 * {
   box-sizing: border-box;
@@ -333,7 +339,7 @@ table {
       })}
   }
   tr:nth-child(odd) {
-    background-color: ${({ theme }) => theme.bg4}
+    background-color: ${({ theme }) => `#323232`}
   }
 
 fieldset {

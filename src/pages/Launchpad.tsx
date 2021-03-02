@@ -224,14 +224,14 @@ const Launchpad: FC = () => {
     <>
       <StyledBody color="bg2">
         <StyledContainer sWidth="800px">
-          <InfoStatement color="bg2" />
-          <TYPE.LargeHeader color="bg1" textAlign="center">
+          <InfoStatement color="white" />
+          <TYPE.LargeHeader color="primary1" textAlign="center">
             Launchpad for Developers
           </TYPE.LargeHeader>
-          <TYPE.Header marginY="1.875rem" color="bg1">
+          <TYPE.Header marginY="1.875rem" color="white">
             How it works?
           </TYPE.Header>
-          <TYPE.Body color="bg1" textAlign="center" lineHeight="1.5rem">
+          <TYPE.Body color="white" textAlign="center" lineHeight="1.5rem">
             1. Register your project with this form.
             <br />
             2. Include a link to your working dapp that will use the created
@@ -252,7 +252,7 @@ const Launchpad: FC = () => {
                 >
                   <Flex justifyContent="space-between">
                     <Flex>
-                      <TYPE.Header color="black" mb="1.25rem">
+                      <TYPE.Header color="white" mb="1.25rem">
                         Project Name
                       </TYPE.Header>
                       <TYPE.Body color="red">* </TYPE.Body>
@@ -260,7 +260,7 @@ const Launchpad: FC = () => {
 
                     <Flex>
                       <TYPE.Body color="red">* </TYPE.Body>
-                      <TYPE.Body color="black">
+                      <TYPE.Body color="white">
                         These fields are required
                       </TYPE.Body>
                     </Flex>
@@ -293,7 +293,7 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       Token Ticker
                     </TYPE.Header>
                     <TYPE.Body color="red">* </TYPE.Body>
@@ -326,7 +326,7 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       Project Description
                     </TYPE.Header>
                     <TYPE.Body color="red">* </TYPE.Body>
@@ -360,11 +360,11 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex mb="1.25rem">
-                    <TYPE.Header color="black">Logo</TYPE.Header>
+                    <TYPE.Header color="white">Logo</TYPE.Header>
                     <TYPE.Body color="red" mr=".4rem">
                       *{' '}
                     </TYPE.Body>
-                    <TYPE.Body color="black">
+                    <TYPE.Body color="white">
                       (Image format: png, jpg, svg)
                     </TYPE.Body>
                   </Flex>
@@ -385,7 +385,7 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       Website Link
                     </TYPE.Header>
                     <TYPE.Body color="red">* </TYPE.Body>
@@ -420,7 +420,7 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       dapp Link
                     </TYPE.Header>
                   </Flex>
@@ -453,7 +453,7 @@ const Launchpad: FC = () => {
                   paddingX="1.375rem"
                   paddingY="1.875rem"
                 >
-                  <TYPE.Header color="black" mb="1.25rem">
+                  <TYPE.Header color="white" mb="1.25rem">
                     Whitepaper Link
                   </TYPE.Header>
                   <Controller
@@ -485,10 +485,10 @@ const Launchpad: FC = () => {
                   paddingX="1.375rem"
                   paddingY="1.875rem"
                 >
-                  <TYPE.Header color="black" mb="1.25rem">
+                  <TYPE.Header color="white" mb="1.25rem">
                     Social Medial Links
                   </TYPE.Header>
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Discord
                   </TYPE.Body>
                   <Controller
@@ -513,7 +513,7 @@ const Launchpad: FC = () => {
                       {errors.discord.message}
                     </TYPE.Small>
                   )}
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Telegram
                   </TYPE.Body>
                   <Controller
@@ -538,7 +538,7 @@ const Launchpad: FC = () => {
                       {errors.telegram.message}
                     </TYPE.Small>
                   )}
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Twitter
                   </TYPE.Body>
                   <Controller
@@ -563,7 +563,7 @@ const Launchpad: FC = () => {
                       {errors.twitter.message}
                     </TYPE.Small>
                   )}
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Facebook
                   </TYPE.Body>
                   <Controller
@@ -596,14 +596,14 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       LIFTOFF Launch Date & Time
                     </TYPE.Header>
                     <TYPE.Body color="red">* </TYPE.Body>
                   </Flex>
                   <DateFlex>
                     <Box>
-                      <TYPE.Body color="black" mt="0.5rem" mb="0.5rem">
+                      <TYPE.Body color="white" mt="0.5rem" mb="0.5rem">
                         Date
                       </TYPE.Body>
                       <Controller
@@ -629,7 +629,7 @@ const Launchpad: FC = () => {
                       )}
                     </Box>
                     <Box>
-                      <TYPE.Body color="black" mt="0.5rem" mb="0.5rem">
+                      <TYPE.Body color="white" mt="0.5rem" mb="0.5rem">
                         Timezone
                       </TYPE.Body>
                       <Controller
@@ -659,7 +659,7 @@ const Launchpad: FC = () => {
                       )}
                     </Box>
                   </DateFlex>
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Time
                   </TYPE.Body>
                   <Controller
@@ -688,12 +688,12 @@ const Launchpad: FC = () => {
                   paddingY="1.875rem"
                 >
                   <Flex>
-                    <TYPE.Header color="black" mb="1.25rem">
+                    <TYPE.Header color="white" mb="1.25rem">
                       Soft & Hard Cap / TotalSupply
                     </TYPE.Header>
                     <TYPE.Body color="red">* </TYPE.Body>
                   </Flex>
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Soft Cap
                   </TYPE.Body>
                   <Controller
@@ -718,7 +718,7 @@ const Launchpad: FC = () => {
                       {errors.softCap.message}
                     </TYPE.Small>
                   )}
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Hard Cap
                   </TYPE.Body>
                   <Controller
@@ -743,7 +743,7 @@ const Launchpad: FC = () => {
                       {errors.hardCap.message}
                     </TYPE.Small>
                   )}
-                  <TYPE.Body color="black" mt="1rem" mb="0.5rem">
+                  <TYPE.Body color="white" mt="1rem" mb="0.5rem">
                     Total Supply
                   </TYPE.Body>
                   <Controller
@@ -773,8 +773,8 @@ const Launchpad: FC = () => {
                 <StyledButton type="submit">Launch</StyledButton>
               </fieldset>
             </form>
-            <Disclaimer color="#232628" />
-            <CopyRight mt="1.375rem" color="#232628" />
+            <Disclaimer color="white" />
+            <CopyRight mt="1.375rem" color="white" />
           </Box>
           <Spinner loading={loading} />
         </StyledContainer>

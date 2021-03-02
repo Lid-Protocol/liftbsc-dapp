@@ -48,9 +48,9 @@ const LayoutGrid = styled.div(
       gridTemplateColumns: '1fr !important'
     }),
   ({ theme }) =>
-  theme.mediaWidth.upToExtraLarge({
-    gridTemplateColumns: 'repeat(2, 1fr)'
-  })
+    theme.mediaWidth.upToExtraLarge({
+      gridTemplateColumns: 'repeat(2, 1fr)'
+    })
 );
 
 const StyledContainer = styled(UnstyledContainer)({}, ({ theme }) =>
@@ -77,7 +77,7 @@ const Projects = () => {
     <>
       <StyledBody color="bg3">
         <StyledContainer sWidth="85vw">
-          <InfoStatement color="bg2" />
+          <InfoStatement color="white" />
           <Container>
             <STabs
               selectedTabClassName="is-selected"
@@ -87,7 +87,7 @@ const Projects = () => {
               <STabList>
                 {tabs.map((tab) => (
                   <STab key={tab.title}>
-                    <TYPE.Header color="black" fontWeight="normal">
+                    <TYPE.Header color="white" fontWeight="normal">
                       {tab.title}
                     </TYPE.Header>
                   </STab>
@@ -122,8 +122,8 @@ const Projects = () => {
             </STabs>
           </Container>
 
-          <Disclaimer color="#232628" />
-          <CopyRight mt="1.375rem" color="#232628" />
+          <Disclaimer color="white" />
+          <CopyRight mt="1.375rem" color="white" />
 
           <Spinner loading={loading} />
         </StyledContainer>

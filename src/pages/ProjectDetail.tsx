@@ -146,8 +146,8 @@ const ProjectDetail: FC<IProjectDetails> = ({ id }) => {
             )}
           </StyledContainer>
 
-          {!isVerified(tokenSale) && <Disclaimer color="#232628" />}
-          <CopyRight mt="1.375rem" color="#232628" />
+          {!isVerified(tokenSale) && <Disclaimer color="white" />}
+          <CopyRight mt="1.375rem" color="white" />
         </StyledBody>
       ) : (
         <p>Loading...</p>

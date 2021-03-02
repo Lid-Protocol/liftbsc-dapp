@@ -6,8 +6,9 @@ const Select = styled(UnstyledSelect)`
   outline: none;
   height: 2.375rem;
   padding: 0 1rem;
-  border: 1px solid #dadada !important;
-  color: #000000 !important;
+  border: none !important;
+  color: white !important;
+  background-color: #323232 !important;
 `;
 
 export default Select;

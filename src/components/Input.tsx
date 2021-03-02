@@ -6,7 +6,7 @@ const Input = styled(UnstyledInput)<{ error?: string }>`
   outline: none;
   height: 2.375rem;
   padding: 0 1rem;
-  border-color: ${({ error, theme }) => (error ? theme.red1 : '#DADADA')};
+  color: white;
 `;
 
 export default Input;

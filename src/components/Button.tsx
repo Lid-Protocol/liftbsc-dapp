@@ -9,7 +9,7 @@ const Button = styled.button`
   font-size: 1rem;
   border: none;
   outline: none;
-  background: linear-gradient(90deg, rgba(249,55,206,1) 0%, rgba(144,44,233,1) 100%);
+  background: ${({ theme }) => theme.primary1};
   color: ${({ theme }) => theme.white};
 `;
 

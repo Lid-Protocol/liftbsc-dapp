@@ -27,7 +27,7 @@ export const STab = styled(Tab)`
     })}
 
   &.is-selected {
-    border-bottom: 8px solid #232628;
+    border-bottom: 8px solid #f5f5f5;
   }
 
   &:focus {
@@ -39,7 +39,7 @@ export const STab = styled(Tab)`
 export const STabPanel = styled(TabPanel)`
   display: none;
   min-height: 40vh;
-  border-top: 1px solid #232628;
+  border-top: 1px solid #ffffff;
   padding: 20px 4px;
   margin-top: -5px;
 

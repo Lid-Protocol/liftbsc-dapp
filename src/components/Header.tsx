@@ -18,7 +18,7 @@ import { networkIds, networkNames } from 'utils/networks';
 interface Props {}
 
 const StyledNavContainer = styled.nav`
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: #232628;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -86,12 +86,13 @@ const StyledNetwork = styled.span<{ isCorrectNetwork: boolean }>`
   width: fit-content;
   margin-left: 1rem;
   margin-right: 1rem;
-  border: 1px solid #3A3D40;
+  border: 1px solid #3a3d40;
   border-radius: 5px;
   padding: 7px 20px 7px 20px;
   font-size: 16px;
   line-height: 22px;
-  color: ${({ isCorrectNetwork }) => (isCorrectNetwork ? '#29ADA5' : '#FD4281')};
+  color: ${({ isCorrectNetwork }) =>
+    isCorrectNetwork ? '#29ADA5' : '#FD4281'};
   cursor: default;
 
   @media (max-width: 720px) {
@@ -105,14 +106,14 @@ const StyledIcon = styled.span`
   align-items: center;
 
   img {
-  	border-radius: 50%;
-	  width: 1.3rem;
+    border-radius: 50%;
+    width: 1.3rem;
   }
 `;
 
 const StyledContainer = styled.div`
   display: flex;
-  background: #3A3D40;
+  background: #3a3d40;
   border-radius: 5px;
   padding: 7px 16px 7px 12px;
 `;
@@ -143,7 +144,9 @@ const Header = (_props: Props) => {
   const context = useConnectedWeb3Context();
   const { account, networkId } = context;
   const isConnected = !!account;
-  const correctNetworkId = parseInt(process.env.REACT_APP_CORRECT_NETWORK_ID || '1');
+  const correctNetworkId = parseInt(
+    process.env.REACT_APP_CORRECT_NETWORK_ID || '1'
+  );
 
   useEffect(() => {
     const imgSrc = blockies.create({ seed: account || '' }).toDataURL();
@@ -157,7 +160,9 @@ const Header = (_props: Props) => {
       <StyledNavContainer>
         <StyledLink to="/">
           <StyledLogo src={Logo} alt="LID protocol logo" />
-          <TYPE.LargeHeader fontWeight={400}>LIFTOFF</TYPE.LargeHeader>
+          <TYPE.LargeHeader fontWeight={400} color="primary1">
+            LIFTOFF
+          </TYPE.LargeHeader>
         </StyledLink>
         {!isOpen ? (
           <StyledMenu src={Menu} onClick={() => setIsOpen(true)} />
@@ -178,27 +183,34 @@ const Header = (_props: Props) => {
             <StyledAccountInfo>
               {networkId !== correctNetworkId ? (
                 <>
-                  <StyledNetwork isCorrectNetwork={false} data-tip data-for="wrong_network">
+                  <StyledNetwork
+                    isCorrectNetwork={false}
+                    data-tip
+                    data-for="wrong_network"
+                  >
                     {networkNames[networkId as networkIds]}
                   </StyledNetwork>
                   <ReactTooltip id="wrong_network">
                     <p>
-                      You are on {networkNames[networkId as networkIds]}. LIFTOFF dapp <br />requires you connect to {networkNames[correctNetworkId as networkIds]}.
+                      You are on {networkNames[networkId as networkIds]}.
+                      LIFTOFF dapp <br />
+                      requires you connect to{' '}
+                      {networkNames[correctNetworkId as networkIds]}.
                     </p>
                   </ReactTooltip>
                 </>
-              ) : (                                                                                                                                                                                                       
+              ) : (
                 <StyledNetwork isCorrectNetwork={true}>
                   {networkNames[networkId as networkIds]}
                 </StyledNetwork>
               )}
               <StyledNavListItem onClick={disconnect}>
-                  <StyledContainer>
-                    <StyledIcon>
-                      <img src={addrImgSrc} alt='' />
-                    </StyledIcon>
-                    {shortenAddress(account || '')}
-                  </StyledContainer>
+                <StyledContainer>
+                  <StyledIcon>
+                    <img src={addrImgSrc} alt="" />
+                  </StyledIcon>
+                  {shortenAddress(account || '')}
+                </StyledContainer>
               </StyledNavListItem>
             </StyledAccountInfo>
           ) : (

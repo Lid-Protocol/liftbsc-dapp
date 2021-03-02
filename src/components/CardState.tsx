@@ -22,7 +22,9 @@ const StyledCard = styled(Card)({
   display: 'flex',
   flexDirection: 'column',
   cursor: 'pointer',
-  width: '350px'
+  width: '350px',
+  background: '#323232',
+  border: '1px solid rgba(231, 186, 65, 0.4)'
 });
 
 const StyledLogo = styled.div({
@@ -137,7 +139,7 @@ const CardState: React.FC<ICardStateProps> = ({ type, project }) => {
           <DefaultLogo />
         )}
       </StyledLogo>
-      <TYPE.LargeHeader textAlign="center">
+      <TYPE.LargeHeader textAlign="center" color="white">
         {projectConf ? projectConf.projectName : 'Project Name'}
       </TYPE.LargeHeader>
       <Badge center color={badges[type].color as keyof Colors}>
@@ -147,12 +149,16 @@ const CardState: React.FC<ICardStateProps> = ({ type, project }) => {
         <Countdown date={countdown} />
       </CountdownContainer>
       <CapInfo>
-        <TYPE.Header>Soft Cap:</TYPE.Header>
-        <TYPE.Header>{utils.formatEther(project.softCap)} xETH</TYPE.Header>
+        <TYPE.Header color="white">Soft Cap:</TYPE.Header>
+        <TYPE.Header color="white">
+          {utils.formatEther(project.softCap)} xETH
+        </TYPE.Header>
       </CapInfo>
       <CapInfo>
-        <TYPE.Header>Hard Cap:</TYPE.Header>
-        <TYPE.Header>{utils.formatEther(project.hardCap)} xETH</TYPE.Header>
+        <TYPE.Header color="white">Hard Cap:</TYPE.Header>
+        <TYPE.Header color="white">
+          {utils.formatEther(project.hardCap)} xETH
+        </TYPE.Header>
       </CapInfo>
       <StyledLink href={projectConf ? projectConf.websiteLink : '#'}>
         {projectConf ? projectConf.websiteLink : ''}
